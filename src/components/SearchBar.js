@@ -2,20 +2,8 @@ import { useState } from "react";
 import ClearButton from "./ClearButton";
 //Imports END
 
-//String array - collection of random items
-const items = [
-  "Clothes Pin",
-  "Tennis Racket",
-  "Snail Shell",
-  "Canteen",
-  "Empty Bottle",
-  "Socks",
-  "Light Bulb",
-  "Fishing Hook",
-];
-
 //React Component
-function SearchBar() {
+function SearchBar(props) {
   //useState React hook
   const [searchValue, setSearchValue] = useState("");
 
@@ -30,7 +18,7 @@ function SearchBar() {
   }
 
   //Filter items based on user input and store them to filteredItems array
-  const filteredItems = items.filter((item) => {
+  const filteredItems = props.itemList.filter((item) => {
     return item.toLowerCase().includes(searchValue.toLowerCase());
   });
 
@@ -39,10 +27,10 @@ function SearchBar() {
       <input
         type="text"
         value={searchValue}
-        placeholder="search..."
+        placeholder={props.placeholderText}
         onChange={handleInputChange}
       />
-      {/*Conditional rendering (short-circuit conditional)*/}
+      {/*Conditional rendering (short-circuit conditional) - should ClearButton be rendered*/}
       {searchValue.length > 0 && <ClearButton clearInput={clearInput} />}
       {/* Render input value  */}
       <div>{searchValue}</div>
