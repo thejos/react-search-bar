@@ -13,14 +13,14 @@ function App() {
     "Fishing Hook",
   ];
   const flowers = [
-    "daffodil",
-    "hyacinth",
-    "lilac",
-    "bellflower",
-    "tulip",
-    "thistle",
-    "lily",
-    "peony",
+    "Daffodil",
+    "Hyacinth",
+    "Lilac",
+    "Bellflower",
+    "Tulip",
+    "Thistle",
+    "Lily",
+    "Peony",
   ];
   return (
     <div>
