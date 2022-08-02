@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { InputGroup, Icon, Button } from "@blueprintjs/core";
+import { InputGroup, Icon, Button, UL } from "@blueprintjs/core";
 import "@blueprintjs/core/lib/css/blueprint.css";
 //import END
 
@@ -103,17 +103,15 @@ function SearchBar(props) {
   }, [clickCount, props.itemList, searchValue, labelText]); //useEffect() END
 
   return (
-    <div>
+    <div style={{ padding: "10px" }}>
       {/*div contains:
        input field with icon and button. All from: [@blueprintjs/core]*/}
       <div
         style={{
           display: "inline-block",
           width: "20vw",
-          // padding: 4,
           marginLeft: 14,
           marginTop: 6,
-          marginRight: 6,
         }}
       >
         <InputGroup //[@blueprintjs/core]
@@ -167,12 +165,12 @@ function SearchBar(props) {
         <label htmlFor="searchField">{labelText}</label>
       </div>
 
-      {/* Show (map) every item from filteredItems array */}
-      <ul>
+      {/* Show (map) every item from filteredItems array using unordered list from [@blueprintjs/core]*/}
+      <UL style={{ marginLeft: "10px" }}>
         {filteredItems.map((item) => {
           return <li key={item}>{item}</li>;
         })}
-      </ul>
+      </UL>
     </div> //div container END
   ); //return() END
 } //Component SearchBar END
