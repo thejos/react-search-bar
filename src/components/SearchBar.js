@@ -22,6 +22,8 @@ function SearchBar(props) {
   const [clickCount, setClickCount] = useState(0);
   //Sets label text
   const [labelText, setLabelText] = useState("");
+  //Determines the value of 'disabled?:' property on <InputGroup /> component
+  const [isDisabled, setIsDisabled] = useState(false);
 
   //Gets input value and assigns the value to searchValue and labelText variables
   function handleInputChange(event) {
@@ -71,8 +73,8 @@ function SearchBar(props) {
           //condition
           props.itemList.length > 0
             ? //messages
-              `${removedItem} gone out of window. Try ${rndItem}.`
-            : `${removedItem} gone. List is empty.`,
+              `${removedItem} went out the window. Try ${rndItem}.`
+            : `${removedItem} is gone. List is empty.`,
           //toast options (supersede ToastContainer (from App element) props)
           {
             position: toast.POSITION.TOP_CENTER,
@@ -99,6 +101,7 @@ function SearchBar(props) {
     } else {
       setSearchValue("");
       setLabelText("Refresh the web page to repopulate the list.");
+      setIsDisabled(true);
     } //if-else END
   }, [clickCount, props.itemList, searchValue, labelText]); //useEffect() END
 
@@ -116,7 +119,7 @@ function SearchBar(props) {
       >
         <InputGroup //[@blueprintjs/core]
           small={true}
-          disabled={false}
+          disabled={isDisabled}
           type="text"
           value={searchValue}
           placeholder={props.placeholderText}
@@ -156,12 +159,7 @@ function SearchBar(props) {
       </div>
 
       {/* Render input value  */}
-      <div
-        style={{
-          marginTop: "2px",
-          marginLeft: "22px",
-        }}
-      >
+      <div style={{ marginTop: "2px", marginLeft: "22px" }}>
         <label htmlFor="searchField">{labelText}</label>
       </div>
 
