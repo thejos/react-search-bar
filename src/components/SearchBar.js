@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { InputGroup, Icon, Button, UL } from "@blueprintjs/core";
 import "@blueprintjs/core/lib/css/blueprint.css";
-//import END
+//END import
 
 //React Component
 function SearchBar(props) {
@@ -108,7 +108,7 @@ function SearchBar(props) {
   return (
     <div style={{ padding: "10px" }}>
       {/*div contains:
-       input field with icon and button. All from: [@blueprintjs/core]*/}
+       Input field with icon and button. All from: [@blueprintjs/core]*/}
       <div
         style={{
           display: "inline-block",
@@ -169,8 +169,8 @@ function SearchBar(props) {
           return <li key={item}>{item}</li>;
         })}
       </UL>
-    </div> //div container END
-  ); //return() END
-} //Component SearchBar END
+    </div> //END container div
+  ); //END return()
+} //END SearchBar Component
 
 export default SearchBar;
