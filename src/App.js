@@ -1,6 +1,7 @@
-import SearchBar from "./components/SearchBar";
 import { useState, useEffect } from "react";
-import PuffLoader from "react-spinners/PuffLoader";
+import SearchBar from "./components/SearchBar";
+import UlSkeleton from "./components/UlSkeleton";
+//END import
 
 function App() {
   //String array - collection of random items
@@ -14,6 +15,7 @@ function App() {
     "Light Bulb",
     "Fishing Hook",
   ];
+  //...flower collection
   const flowers = [
     "Daffodil",
     "Hyacinth",
@@ -46,23 +48,11 @@ function App() {
       <SearchBar itemList={items} placeholderText={"item search..."} />
       <SearchBar itemList={flowers} placeholderText={"flower search..."} />
       {/*conditional expression with ternary operator:
-          has-product ? render SearchBar : render loading spinner */}
+          has-product ? render SearchBar : render UlSkeleton */}
       {products.length > 0 ? (
         <SearchBar itemList={products} placeholderText={"product search..."} />
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "18vw",
-            height: "16vw",
-            padding: "10px",
-          }}
-        >
-          <PuffLoader color="#ACB5B9" loading size={80} speedMultiplier={1} />
-          {/* <span>Loading...</span> */}
-        </div>
+        <UlSkeleton />
       )}
       {/*conditional ternary END*/}
     </div>
