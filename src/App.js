@@ -39,7 +39,13 @@ function App() {
         const fetchedProducts = hasProduct.map((product) => {
           return product.title;
         });
-        setProducts(fetchedProducts);
+        //delays value assignment to array 'products'
+        //effect: prevents skeleton screen flashing for a split second
+        let timeoutID = setTimeout(() => {
+          setProducts(fetchedProducts);
+        }, 1000);
+        //clears the timer when unmounting
+        return () => clearTimeout(timeoutID);
       });
   }, []); //useEffect() END
 
