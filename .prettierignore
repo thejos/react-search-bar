@@ -1,0 +1,35 @@
+### .prettierignore ignores (excludes from formatting) certain files and folders completely.
+### .prettierignore file should be created in the root directory of the project.
+### Each line in a prettierignore file specifies a pattern.
+### .prettierignore uses .gitignore syntax.
+# see: https://git-scm.com/docs/gitignore#_pattern_format
+ 
+### It’s recommended to have a .prettierignore in your project! 
+# This way you can run 'prettier --write .' to make sure that everything is formatted (without        # mangling files you don’t want, or choking on generated files). 
+# And, your editor will know which files not to format!
+
+### By default prettier ignores files in version control systems directories and node_modules
+## So by default it will be:
+# **/.git
+# **/.svn
+# **/.hg
+# **/node_modules
+
+### learn more: https://prettier.io/docs/en/ignore.html
+
+
+
+### start IGNORE PATTERN ###
+#--------------------------#
+
+
+
+# Ignore artifacts:
+build
+coverage
+dist
+
+
+
+### end IGNORE PATTERN ###
+#------------------------#
